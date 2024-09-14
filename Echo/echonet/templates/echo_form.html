@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center  mt-4">Welcome to Echo </h1>
+
+<h2> 
+  {%if form.instance.pk %} 
+  Edit Echo 
+  {% else %} 
+  Create Echo 
+  {% endif %} 
+  <form  method="post" enctype="multipart/form-data" class="form">
+     {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-warning" type="submit">Submit</button>
+  </form>
+  <a href="{% url 'echo_list' %}">Back to echo list</a>
+</h2>
+
+{% endblock %}

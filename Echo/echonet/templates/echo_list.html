@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center  mt-4">Welcome to Echo</h1>
+
+<a class="btn btn-primary mb-4" href="{% url 'echo_create' %}">Create a echo</a>
+<div class="container row gap-3">
+  {% for echo in  echoes %}
+    
+  <div class="card" style="width: 18rem;">
+    
+    <img src="{{echo.photos.url}}" class="card-img-top" alt="Image Uploaded">
+    <div class="card-body">
+      <h5 class="card-title">{{echo.user.username}}</h5>
+      <p class="card-text">{{echo.text}}</p>
+      {% if echo.user == user %}
+      <a href="{% url 'echo_edit' echo.id%}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'echo_delete' echo.id%}" class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
