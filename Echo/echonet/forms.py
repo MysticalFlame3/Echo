@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 class EchoForm(forms.ModelForm):
     class Meta:
         model = Echo
-        fields = ['text','photo']
+        #fields = ['text','photo']
+        fields = ['text']
 
 class UserRegistrationForm(UserCreationForm):
   email = forms.EmailField()
