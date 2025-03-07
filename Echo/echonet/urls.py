@@ -10,3 +10,6 @@ urlpatterns = [
     path('register/', views.register, name='register'),
 
 ] 
+urlpatterns += [
+    path('404/', lambda request: HttpResponse('404 Page not found')),
+]
